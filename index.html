@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nullscape Curse Planner</title>
+    <meta name="description"
+        content="Plan your curse purification order for Nullscape. Altar of Purification removes the highest curse-value curse first.">
+    <link rel="icon" type="image/png" href="https://static.wikitide.net/nullscapewiki/2/26/Favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://static.wikitide.net/nullscapewiki/2/26/Favicon.png" alt="Nullscape" class="logo-icon">
+                <span class="logo-text">Nullscape <span class="accent-text">Curse Planner</span></span>
+            </div>
+            <a href="https://nullscape.wiki/wiki/Curses" target="_blank" class="wiki-link">Wiki ↗</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="page-layout">
+
+            <!-- LEFT: Curse Selection -->
+            <div class="panel panel-left">
+                <div class="panel-header">
+                    <span class="panel-title">Active Curses</span>
+                    <button id="clear-btn" class="mini-btn">Clear all</button>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-row">
+                    <div class="cat-tabs">
+                        <button class="cat-tab active" data-cat="all">All</button>
+                        <button class="cat-tab" data-cat="global">Global</button>
+                        <button class="cat-tab" data-cat="enemy">Enemy</button>
+                    </div>
+                    <div class="search-wrap">
+                        <svg class="search-icon" viewBox="0 0 16 16" fill="none">
+                            <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.4" />
+                            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.4"
+                                stroke-linecap="round" />
+                        </svg>
+                        <input type="text" id="search-input" class="search-input" placeholder="Search...">
+                    </div>
+                </div>
+
+                <!-- Curse Grid -->
+                <div class="curse-grid" id="curse-grid">
+                    <!-- JS populated -->
+                </div>
+
+                <div class="selected-count" id="selected-count">0 curses selected</div>
+            </div>
+
+            <!-- RIGHT: Result Panel -->
+            <div class="panel panel-right">
+                <div class="panel-header">
+                    <span class="panel-title">Purification Order</span>
+                </div>
+
+                <p class="panel-desc">The <strong>Altar of Purification</strong> always removes the curse with the
+                    <strong>highest curse value</strong> first. Plan accordingly.
+                </p>
+
+                <div class="purification-list" id="purification-list">
+                    <div class="puri-empty">
+                        <span>Select curses on the left</span>
+                    </div>
+                </div>
+
+                <!-- Info footer -->
+                <div class="info-box" id="info-box" style="display:none;">
+                    <div class="info-row">
+                        <span class="info-label">Next to be removed</span>
+                        <span class="info-value" id="info-next">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Total value</span>
+                        <span class="info-value" id="info-total">—</span>
+                    </div>
+                    <div class="info-row" id="nothing-row" style="display:none;">
+                        <span class="info-label">Nothing? active</span>
+                        <span class="info-value info-green">Shops -15% cheaper</span>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
